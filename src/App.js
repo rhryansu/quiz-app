@@ -55,19 +55,34 @@ export default function App() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(1);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [advice, setAdvice] = useState('');
 
 	const handleAnswerButtonClick = (point) => {
 
 		const nextQuestion = currentQuestion + 1;
 		const nextQuestionIndex = currentQuestionIndex + 1;
 
-			setScore(score + point);
+		setScore(score + point);
 
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 			setCurrentQuestionIndex(nextQuestionIndex);
 		} else {
 			setShowScore(true);
+			adviceHandler(score);
+		}
+	}
+
+	const adviceHandler = (score) => {
+		if (80 >= score > 60) {
+			setAdvice(`Congratulations! It looks like you are one of those people whose work and lifestyle habits don't make you too susceptible to skin cancer! It is very rare for you to have such a good working environment in rural Victoria where the incidence of skin cancer is very high. Congratulations and hope you will stay free of skin cancer ever!
+			However, here are a few suggestions for your work and living environment and habits that we hope you will read carefully and use. This way, you will have a good chance of keeping your skin healthy!`);
+		} else if (60 >= score >= 40) {
+			setAdvice(`Ah-oh! It looks like you have some habits and work environments that expose you to the threat of UV rays. While it may not seem like such a threat is serious right now, you do need to be fully aware of the importance of sun protection. After all, staying healthy is extremely critical to you and your familes!
+			Here are a few suggestions for your work and living environment and habits that we hope you will read carefully and use. This way, you will have a good chance of keeping your skin healthy!`);
+		} else if (40 >= score >0) {
+			setAdvice(`Ooops! It looks like your work environment and lifestyle habits expose you to the threat of UV rays on a regular basis! Such a threat can put you at a much higher risk of developing skin cancer. But don't worry, we'll give you a series of tips that, if you really take them seriously and keep them up, you'll be well away from the risk of developing the disease.
+			Take a look at the advice below! Do what you have to do to maintain a healthy skin in the future!`);
 		}
 	}
 
@@ -78,8 +93,7 @@ export default function App() {
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>
-					<div>You scored {score} out of 100. <br/><br/>Here's your personalized advice:
-					
+					<div>You scored {score} out of 100. <br/><br/>Here's your personalized advice:<br/>{advice}
 					</div>
 				</div>
 			) : (
