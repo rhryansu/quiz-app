@@ -4,39 +4,48 @@ export default function App() {
 	
 	const questions = [
 		{
-			questionText: 'What is the capital of France?',
+			questionText: 'When you work in the field, do you work most of the time inside a large machine(large harvester,etc) or in the field?',
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ answerText: 'In a large machine', point: 10 },
+				{ answerText: 'In the field', point: 0 },
 			],
 		},
 		{
-			questionText: 'Who is CEO of Tesla?',
+			questionText: 'Does your work require you to wear a mask or other item that covers your lips?',
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
+				{ answerText: 'Yes', point: 10 },
+				{ answerText: 'No', point: 0 },
 			],
 		},
 		{
-			questionText: 'The iPhone was created by which company?',
+			questionText: 'Do you need to fly frequently?',
 			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
+				{ answerText: 'Yes', point: 10 },
+				{ answerText: 'No', point: 0 },
 			],
 		},
 		{
-			questionText: 'How many Harry Potter books are there?',
+			questionText: 'Do you have frequent exposure to water, such as manually watering crops?',
 			answerOptions: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
+				{ answerText: 'Yes', point: 10 },
+				{ answerText: 'No', point: 0 },
+			],
+		},
+		{
+			questionText: 'How many hours do you need to be exposed to the sun?',
+			answerOptions: [
+				{ answerText: 'Barely not', point: 20 },
+				{ answerText: 'Casually walk in the sun', point: 15 },
+				{ answerText: 'Might need to walk in more than 30 minutes', point: 10 },
+				{ answerText: 'For a long time(more than 30 minutes)', point: 5 },
+			],
+		},
+		{
+			questionText: 'whether your skin is experiencing heat, erythema, burning, pain, peeling or itching? If yes, How many days have you had the above symptoms?',
+			answerOptions: [
+				{ answerText: 'After 3 days and symptoms are getting worse', point: 20 },
+				{ answerText: 'Below 3 days', point: 20 },
+				{ answerText: 'No', point: 0 },
 			],
 		},
 	];
@@ -47,14 +56,13 @@ export default function App() {
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 
-	const handleAnswerButtonClick = (isCorrect) => {
+	const handleAnswerButtonClick = (point) => {
 
 		const nextQuestion = currentQuestion + 1;
 		const nextQuestionIndex = currentQuestionIndex + 1;
 
-		if (isCorrect) {
-			setScore(score + 1);
-		}
+			setScore(score + point);
+
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 			setCurrentQuestionIndex(nextQuestionIndex);
@@ -69,7 +77,11 @@ export default function App() {
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
-				<div className='score-section'>You scored {score} out of {questions.length}</div>
+				<div className='score-section'>
+					<div>You scored {score} out of 100. <br/><br/>Here's your personalized advice:
+					
+					</div>
+				</div>
 			) : (
 				<>
 					<div className='question-section'>
@@ -80,7 +92,7 @@ export default function App() {
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption, index) => (
-							<button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+							<button onClick={() => handleAnswerButtonClick(answerOption.point)}>{answerOption.answerText}</button>
 						))}
 					</div>
 				</>
