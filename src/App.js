@@ -105,7 +105,7 @@ export default function App() {
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>
-					<div>You scored {score} out of 80. <br/><br/>Here's your personalized advice:<br/><br/>{advice}
+					<div>Here's your personalized advice:<br/><br/>{advice}
 					</div>
 				</div>
 			) : (
@@ -121,6 +121,7 @@ export default function App() {
 							<button onClick={() => {handleAnswerButtonClick(answerOption.point); console.log("the score onClick is " + answerOption.point);}}>{answerOption.answerText}</button>
 						))}
 					</div>
+					
 				</>
 			)}
 		</div>
