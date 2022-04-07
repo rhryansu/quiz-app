@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 
 export default function App() {
 	
@@ -61,8 +61,15 @@ export default function App() {
 
 		const nextQuestion = currentQuestion + 1;
 		const nextQuestionIndex = currentQuestionIndex + 1;
+		console.log("the point passed to the function is " + point);
+		console.log("the score before setScore is " + score);
+		
+			let localScore = score;	
+			localScore += point;
+			setScore(localScore);
 
-		setScore(score + point);
+		console.log("the score in function aferwards is " + score);
+		console.log("the point passed to the function is " + point);
 
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
@@ -73,14 +80,19 @@ export default function App() {
 		}
 	}
 
+	useEffect(() => {
+		console.log("update state", score)
+	}, [score]);
+
 	const adviceHandler = (score) => {
-		if (80 >= score > 60) {
+		console.log("score in handler is " + score);
+		if (score > 60) {
 			setAdvice(`Congratulations! It looks like you are one of those people whose work and lifestyle habits don't make you too susceptible to skin cancer! It is very rare for you to have such a good working environment in rural Victoria where the incidence of skin cancer is very high. Congratulations and hope you will stay free of skin cancer ever!
 			However, here are a few suggestions for your work and living environment and habits that we hope you will read carefully and use. This way, you will have a good chance of keeping your skin healthy!`);
-		} else if (60 >= score >= 40) {
+		} else if (score > 40 && score < 61) {
 			setAdvice(`Ah-oh! It looks like you have some habits and work environments that expose you to the threat of UV rays. While it may not seem like such a threat is serious right now, you do need to be fully aware of the importance of sun protection. After all, staying healthy is extremely critical to you and your familes!
 			Here are a few suggestions for your work and living environment and habits that we hope you will read carefully and use. This way, you will have a good chance of keeping your skin healthy!`);
-		} else if (40 >= score >0) {
+		} else {
 			setAdvice(`Ooops! It looks like your work environment and lifestyle habits expose you to the threat of UV rays on a regular basis! Such a threat can put you at a much higher risk of developing skin cancer. But don't worry, we'll give you a series of tips that, if you really take them seriously and keep them up, you'll be well away from the risk of developing the disease.
 			Take a look at the advice below! Do what you have to do to maintain a healthy skin in the future!`);
 		}
@@ -93,7 +105,7 @@ export default function App() {
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>
-					<div>You scored {score} out of 100. <br/><br/>Here's your personalized advice:<br/>{advice}
+					<div>You scored {score} out of 80. <br/><br/>Here's your personalized advice:<br/><br/>{advice}
 					</div>
 				</div>
 			) : (
@@ -106,7 +118,7 @@ export default function App() {
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption, index) => (
-							<button onClick={() => handleAnswerButtonClick(answerOption.point)}>{answerOption.answerText}</button>
+							<button onClick={() => {handleAnswerButtonClick(answerOption.point); console.log("the score onClick is " + answerOption.point);}}>{answerOption.answerText}</button>
 						))}
 					</div>
 				</>
