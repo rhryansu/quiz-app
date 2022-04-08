@@ -105,7 +105,11 @@ export default function App() {
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>
-					<div>Here's your personalized advice:<br/><br/>{advice}
+					<div>Here's your personalized advice:<br/><br/>{advice}<br/><br/>
+					<a className="App-link"
+          href="http://www.protecturskin.social/"
+          
+          rel="noopener noreferrer">Return Home</a>
 					</div>
 				</div>
 			) : (

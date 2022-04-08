@@ -79,12 +79,13 @@ button {
   color: #ffffff;
   background-color: #252d4a;
   border-radius: 15px;
-  display: flex;
+  display: table-cell;
   padding: 5px;
   justify-content: flex-start;
   align-items: center;
   border: 5px solid #234668;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .correct {
@@ -105,4 +106,28 @@ button:focus {
 
 button svg {
   margin-right: 5px;
+}
+
+.App-link {
+  width: 100%;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #252d4a;
+  border-radius: 15px;
+  display: table-cell;
+  padding: 5px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 5px solid #234668;
+  cursor: pointer;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.App-link:hover {
+  background-color: #555e7d;
+}
+
+.App-link:focus {
+  outline: none;
 }
