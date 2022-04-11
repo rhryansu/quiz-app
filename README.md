@@ -27,6 +27,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#project-structure">Project Structure</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -34,7 +35,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -60,7 +61,6 @@ And is a single page application (SPA) feature for [Protect Your Skin](https://g
 * **package.json/ package-lock.json**: node.js entry point file, includes all dependency descriptions as well as application related information.
 ## Getting Started
 
-
 ### Prerequisites
 
 * VS Code as IDE
@@ -81,15 +81,14 @@ And is a single page application (SPA) feature for [Protect Your Skin](https://g
 4.  In the VS Code terminal,
     `npm start`
 
+## Usage
 
-
-
+Follow the prompt and finish the 6 quiz questions.
+Customized suggestions would be given at the end of the quiz.
 
 ## License
 
 *temporary unavailable*
-
-
 
 ## Contact
 
@@ -98,8 +97,6 @@ Ruihua Su - rh.ryan.su@gmail.com, rsuu0005@student.monash.edu
 Monash IE TP04 - 5PoorGuy
 
 Project Link: https://github.com/rhryansu/quiz-app
-
-
 
 ## Acknowledgments
 
