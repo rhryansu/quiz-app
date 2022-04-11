@@ -106,11 +106,13 @@ export default function App() {
 			{showScore ? (
 				<div className='score-section'>
 					<div>Here's your personalized advice:<br/><br/>{advice}<br/><br/>
+					
 					<a className="App-link"
           href="http://www.protecturskin.social/"
           
           rel="noopener noreferrer">Return Home</a>
 					</div>
+					
 				</div>
 			) : (
 				<>
