@@ -3,7 +3,7 @@
   <h3 align="center">Protect Your Skin - Quiz Application</h3>
 
   <p align="center">
-    A React Quiz application that exclusively help people in rural area with educating them skin protection measure.
+    A React Quiz application that exclusively helps people in rural area with educating them skin protection measure.
     <br /><br />
     <a href="https://github.com/rhryansu/quiz-app"><strong>Explore the docs »</strong></a>
     <br />
