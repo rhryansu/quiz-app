@@ -69,7 +69,7 @@ And is a single page application (SPA) feature for [Protect Your Skin](https://g
     `brew install node`
     * Windows using [node package installer](https://nodejs.org/en/), download the lateset version of node then install it.
 
-### installation
+### Installation
 
 2. Clone this repo
 
