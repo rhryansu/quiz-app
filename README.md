@@ -83,7 +83,7 @@ And is a single page application (SPA) feature for [Protect Your Skin](https://g
 
 ## Usage
 
-Follow the prompt and finish the 6 quiz questions.
+Follow the prompt and finish the 9 quiz questions.
 Customized suggestions would be given at the end of the quiz.
 
 ## License
