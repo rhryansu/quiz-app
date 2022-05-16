@@ -124,17 +124,17 @@ export default function App() {
 
 
 	return (
-		<div className='app'>
+		<div className='App'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>
 					<div>Here's your personalized advice:<br/><br/>{advice}<br/><br/>
 					
-					<a className="App-link"
+					<button className="App-link"
           href="http://www.protecturskin.social/"
           
-          rel="noopener noreferrer">Return Home</a>
+          rel="noopener noreferrer">Return</button>
 					</div>
 					
 				</div>
