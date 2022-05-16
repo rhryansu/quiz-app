@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function App() {
 	
@@ -77,7 +77,9 @@ export default function App() {
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 	const [advice, setAdvice] = useState('');
-	const [suggestions, setSuggestions] = useState('');
+	// const [suggestions, setSuggestions] = useState('');
+	const [tiplist, setTiplist] = useState([])
+	
 
 
 	const handleAnswerButtonClick = (point, tips) => {
@@ -90,9 +92,13 @@ export default function App() {
 			let localScore = score;	
 			localScore += point;
 			setScore(localScore);
-			let localSuggestions = suggestions;
-			localSuggestions = localSuggestions + tips
-			setSuggestions(localSuggestions);
+			// let localSuggestions = suggestions;
+			// localSuggestions = localSuggestions + tips;
+			// setSuggestions(localSuggestions);
+			let localTiplist = tiplist;
+			localTiplist.push(tips);
+			setTiplist(localTiplist);
+			
 
 		console.log("the score in function aferwards is " + score);
 		console.log("the point passed to the function is " + point);
@@ -102,7 +108,7 @@ export default function App() {
 			setCurrentQuestionIndex(nextQuestionIndex);
 		} else {
 			setShowScore(true);
-			adviceHandler(score, suggestions);
+			adviceHandler(score);
 		
 		}
 	}
@@ -111,17 +117,20 @@ export default function App() {
 		console.log("update state", score)
 	}, [score]);
 
-	const adviceHandler = (score, suggestions) => {
+	const adviceHandler = (score) => {
 		console.log("score in handler is " + score);
 		if (score > 80) {
-			setAdvice(`Congratulations! It looks like you are one of those people whose work and lifestyle habits don't make you too susceptible to skin cancer!` + suggestions)
+			setAdvice(`Congratulations! It looks like you are one of those people whose work and lifestyle habits don't make you too susceptible to skin cancer!`)
 		} else if (score > 40 && score <= 80) {
-			setAdvice(`Ah-oh! It looks like you have some habits and work environments that expose you to the threat of UV rays.` + suggestions);
+			setAdvice(`Ah-oh! It looks like you have some habits and work environments that expose you to the threat of UV rays.`);
 		} else {
-			setAdvice(`Ooops! It looks like your work environment and lifestyle habits expose you to the threat of UV rays on a regular basis!` + suggestions);
+			setAdvice(`Ooops! It looks like your work environment and lifestyle habits expose you to the threat of UV rays on a regular basis!`);
 		}
 	}
 
+	const itemList = tiplist.map((item) => (
+		<li>{item}</li>
+	))
 
 	return (
 		<div className='App'>
@@ -130,6 +139,7 @@ export default function App() {
 			{showScore ? (
 				<div className='score-section'>
 					<div>Here's your personalized advice:<br/><br/>{advice}<br/><br/>
+					<ul>{itemList}</ul>
 					
 					<button className="App-link"
           href="http://www.protecturskin.social/"
