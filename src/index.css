@@ -2912,7 +2912,6 @@ figcaption {
     -ms-flex-align: center;
     align-items: center;
     background-color: #f4f4f4;
-    background-image: url("bg.jpg");
     background-position: 0px 0px;
     background-size: cover;
     color: #fff;
@@ -3695,17 +3694,6 @@ figcaption {
     background-color: #242424;
 }
 
-.hero-section {
-    width: 60.0000012779555%;
-    height: 23%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-image: url("qb.jpg");
-    background-position: 0px 0px;
-    background-size: cover;
-}
 
 .centered-container {
     display: -webkit-box;
@@ -3966,7 +3954,7 @@ figcaption {
 }
 
 .section-2 {
-    background-image: url("obg.jpg");
+
     background-position: 0px 0px;
     background-size: auto;
 }
@@ -4783,13 +4771,13 @@ figcaption {
 .App {
     margin: auto;
     background-color: #252d4a;
-    width: 450px;
+    width: 900px;
     min-height: 200px;
     height: min-content;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
 }
 
@@ -4799,8 +4787,15 @@ figcaption {
     /* align-items: left; */
     color: #ffffff;
     text-align: left;
-    
+    width: auto;
 }
+
+
+/* .score-section::after {
+    content: "";
+    display: table;
+    clear: both;
+} */
 
 /* QUESTION/TIMER/LEFT SECTION */
 .question-section {
@@ -4837,7 +4832,7 @@ figcaption {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
 button {

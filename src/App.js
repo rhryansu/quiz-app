@@ -140,11 +140,8 @@ export default function App() {
 				<div className='score-section'>
 					<div>Here's your personalized advice:<br/><br/>{advice}<br/><br/>
 					<ul>{itemList}</ul>
-					
-					<button className="App-link"
-          href="http://www.protecturskin.social/"
-          
-          rel="noopener noreferrer">Return</button>
+		
+					<button className="App-link" onClick={()=>{window.location.reload()}}>Return</button>
 					</div>
 					
 				</div>
